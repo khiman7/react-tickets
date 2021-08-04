@@ -1,0 +1,57 @@
+.filterBlock {
+  width: 232px;
+  height: 252px;
+  background-color: #fff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  color: #4a4a4a;
+
+  h5 {
+    padding: 20px 20px 10px 20px;
+    font-weight: 600;
+  }
+
+  li {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    transition: transform 0.2s ease-in-out;
+
+    span {
+      margin-left: 10px;
+    }
+
+    .check {
+      padding-left: 20px;
+    }
+
+    .checkInput {
+      position: absolute;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    .checkbox {
+      position: absolute;
+      margin-left: -20px;
+      width: 20px;
+      height: 20px;
+      background-image: url(img/unchecked.svg);
+      cursor: pointer;
+    }
+
+    .checkInput:checked + .checkbox {
+      background-image: url(img/checked.svg);
+    }
+
+    &:last-child {
+      padding-bottom: 20px;
+    }
+
+    &:hover {
+      background-color: #f1fcff;
+      transform: translateX(-2px);
+    }
+  }
+}
