@@ -6,6 +6,7 @@ export const ticketsActionTypes = {
   FETCH_TICKETS: `${moduleName}.FETCH_TICKETS`,
   SORT_BY_PRICE: `${moduleName}.SORT_BY_PRICE`,
   SORT_BY_DURATION: `${moduleName}.SORT_BY_DURATION`,
+  SET_FILTER_VALUE: `${moduleName}.SET_FILTER_VALUE`,
 };
 
 export const getTickets = () => async (dispatch) => {
@@ -24,4 +25,8 @@ export const sortByPrice = () => (dispatch) => {
 
 export const sortByDuration = () => (dispatch) => {
   dispatch({ type: ticketsActionTypes.SORT_BY_DURATION });
+};
+
+export const setFilterValue = (value) => (dispatch) => {
+  dispatch({ type: ticketsActionTypes.SET_FILTER_VALUE, payload: value });
 };

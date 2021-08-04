@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getTickets, sortByPrice } from './store/tickets';
+import { getTickets } from './store/tickets';
 import Loader from 'react-loader-spinner';
 
 import Filter from './components/Filter';
@@ -32,16 +32,20 @@ const App = () => {
         />
       </header>
       <main className="content">
-        <Filter initialOption={'all'} />
+        <Filter />
         <div className="ticketsBlock">
           <Tabs
             handleClick={(option) => {
               setSortOption(option);
             }}
+            setVisibleTicketsAmount={setVisibleTicketsAmount}
           />
           {tickets.length > 0 ? (
             <>
-              <TicketsList visibleAmount={visibleTicketsAmount} />
+              <TicketsList
+                visibleAmount={visibleTicketsAmount}
+                sortBy={sortOption}
+              />
               <button
                 className="loadMoreButton"
                 onClick={() =>

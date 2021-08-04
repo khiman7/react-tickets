@@ -1,46 +1,35 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { setFilterValue } from '../../store/tickets';
 import uniqueId from 'lodash/uniqueId';
 
 import styles from './Filter.module.scss';
 
-const filterOptions = [
-  {
-    name: 'Все',
-    value: 'all',
-  },
-  {
-    name: 'Без пересадок',
-    value: 'noTransfers',
-  },
-  {
-    name: '1 пересадка',
-    value: 'oneTransfer',
-  },
-  {
-    name: '2 пересадки',
-    value: 'twoTransfers',
-  },
-  {
-    name: '3 пересадки',
-    value: 'threeTransfers',
-  },
-];
+const Filter = () => {
+  const { filters } = useSelector((state) => state.tickets);
+  const dispatch = useDispatch();
 
-const Filter = ({ initialOption }) => {
+  console.log(filters);
+
+  const handleCheckboxChange = (event) => {
+    const filterOption = event.target.value;
+
+    dispatch(setFilterValue(filterOption));
+  };
+
   return (
     <div className={styles.filterBlock}>
       <h5>КОЛИЧЕСТВО ПЕРЕСАДОК</h5>
       <ul className="stopsNumber">
-        {filterOptions.map((option) => {
+        {filters.map((option) => {
           return (
             <li key={uniqueId('filterOption_')}>
               <label className={styles.check}>
                 <input
                   type="checkbox"
-                  className={styles.checkInput}
+                  checked={option.selected}
                   value={option.value}
-                  checked={option.value === initialOption}
+                  onChange={handleCheckboxChange}
                 />
-                <span className={styles.checkbox}></span>
                 <span>{option.name}</span>
               </label>
             </li>

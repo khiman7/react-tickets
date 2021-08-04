@@ -23,8 +23,6 @@ const subscribe = async (searchId, tickets = []) => {
       return await subscribe(searchId, [...tickets, ...newTickets]);
     }
   } catch (error) {
-    console.log(error.message);
-
     const statusCode = error.response.status;
 
     if (statusCode === 500 || statusCode === 502) {

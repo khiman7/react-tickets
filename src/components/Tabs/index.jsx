@@ -15,7 +15,7 @@ const tabs = [
   },
 ];
 
-const Tabs = ({ handleClick }) => {
+const Tabs = ({ handleClick, setVisibleTicketsAmount }) => {
   const [activeTab, setActiveTab] = useState('price');
   const dispatch = useDispatch();
 
@@ -35,6 +35,8 @@ const Tabs = ({ handleClick }) => {
                 } else {
                   dispatch(sortByDuration());
                 }
+
+                setVisibleTicketsAmount(5);
 
                 setActiveTab(sortOption);
                 handleClick(sortOption);

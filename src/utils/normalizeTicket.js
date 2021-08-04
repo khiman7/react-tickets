@@ -1,24 +1,3 @@
-/* const ticketExample = {
-  price: 37197,
-  carrier: 'MH',
-  segments: [
-    {
-      origin: 'MOW',
-      destination: 'HKT',
-      date: '2021-08-11T04:25:00.000Z',
-      stops: [],
-      duration: 602,
-    },
-    {
-      origin: 'HKT',
-      destination: 'MOW',
-      date: '2021-08-30T23:19:00.000Z',
-      stops: ['IST', 'AUH'],
-      duration: 1728,
-    },
-  ],
-}; */
-
 const roundTicketPrice = (price, n) => {
   return Math.round(price / 10 ** n) * 10 ** n;
 };
